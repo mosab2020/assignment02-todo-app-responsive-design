@@ -22,77 +22,77 @@ class _MainTasksScreenState extends State<MainTasksScreen> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Scaffold(
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.blue,
-              ),
-              child: Text('Drawer Header'),
-            ),
-            ListTile(
-              title: const Text('All Tasks'),
-              onTap: () {
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context)=>AllTasksScreen(refreshPage)));
-                // Navigator.pop(context);
-                },
-            ),
-            ListTile(
-              title: const Text('Complete Tasks'),
-              onTap: () {
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context)=>CompleteTasksScreen(refreshPage)));
-              },
-            ), ListTile(
-              title: const Text('InComplete Tasks'),
-              onTap: () {
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context)=>InCompleteTasksScreen(refreshPage)));
-              },
-            ),
-          ],
-        ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: pageIndex,
-        onTap: (v) {
-          pageIndex = v;
-          pageController.jumpToPage(v);
-          setState(() {});
-        },
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.list), label: "All Tasks"),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.done), label: "Complete Tasks"),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.cancel), label: "InComplete Tasks"),
-        ],
-      ),
-      appBar: AppBar(
-        title: Text("ToDo App"),
-        actions: [
-          ElevatedButton(
-              onPressed: () {
-                refreshPage();
-              },
-              child: Text("Test Setstate"))
-        ],
-      ),
-      body: PageView(
-        controller: pageController,
-        children: [
-          AllTasksScreen(refreshPage),
-          CompleteTasksScreen(refreshPage),
-          InCompleteTasksScreen(refreshPage)
-        ],
-      ),
-    );
-  }
 
-  screenSize(){
-    MediaQuery.of(context).size.width > 400
+    return MediaQuery.of(context).size.width > 400
         ? LargeScreen()
         : SmallScreen();
+
+    // return Scaffold(
+    //   drawer: Drawer(
+    //     child: ListView(
+    //       padding: EdgeInsets.zero,
+    //       children: [
+    //         const DrawerHeader(
+    //           decoration: BoxDecoration(
+    //             color: Colors.blue,
+    //           ),
+    //           child: Text('Drawer Header'),
+    //         ),
+    //         ListTile(
+    //           title: const Text('All Tasks'),
+    //           onTap: () {
+    //             Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context)=>AllTasksScreen(refreshPage)));
+    //             // Navigator.pop(context);
+    //             },
+    //         ),
+    //         ListTile(
+    //           title: const Text('Complete Tasks'),
+    //           onTap: () {
+    //             Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context)=>CompleteTasksScreen(refreshPage)));
+    //           },
+    //         ), ListTile(
+    //           title: const Text('InComplete Tasks'),
+    //           onTap: () {
+    //             Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context)=>InCompleteTasksScreen(refreshPage)));
+    //           },
+    //         ),
+    //       ],
+    //     ),
+    //   ),
+    //   bottomNavigationBar: BottomNavigationBar(
+    //     currentIndex: pageIndex,
+    //     onTap: (v) {
+    //       pageIndex = v;
+    //       pageController.jumpToPage(v);
+    //       setState(() {});
+    //     },
+    //     items: const [
+    //       BottomNavigationBarItem(icon: Icon(Icons.list), label: "All Tasks"),
+    //       BottomNavigationBarItem(
+    //           icon: Icon(Icons.done), label: "Complete Tasks"),
+    //       BottomNavigationBarItem(
+    //           icon: Icon(Icons.cancel), label: "InComplete Tasks"),
+    //     ],
+    //   ),
+    //   appBar: AppBar(
+    //     title: Text("ToDo App"),
+    //     actions: [
+    //       ElevatedButton(
+    //           onPressed: () {
+    //             refreshPage();
+    //           },
+    //           child: Text("Test Setstate"))
+    //     ],
+    //   ),
+    //   body: PageView(
+    //     controller: pageController,
+    //     children: [
+    //       AllTasksScreen(refreshPage),
+    //       CompleteTasksScreen(refreshPage),
+    //       InCompleteTasksScreen(refreshPage)
+    //     ],
+    //   ),
+    // );
   }
+
 }
