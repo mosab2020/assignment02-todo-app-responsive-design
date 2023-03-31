@@ -1,6 +1,8 @@
 import 'package:assignment02_todo_task/views/screens/all_tasks_screen.dart';
 import 'package:assignment02_todo_task/views/screens/complete_tasks_screen.dart';
 import 'package:assignment02_todo_task/views/screens/incomplete_tasks_screen.dart';
+import 'package:assignment02_todo_task/views/screens/responsivedesign/large_screen.dart';
+import 'package:assignment02_todo_task/views/screens/responsivedesign/small_screen.dart';
 import 'package:flutter/material.dart';
 
 class MainTasksScreen extends StatefulWidget {
@@ -22,11 +24,7 @@ class _MainTasksScreenState extends State<MainTasksScreen> {
     // TODO: implement build
     return Scaffold(
       drawer: Drawer(
-        // Add a ListView to the drawer. This ensures the user can scroll
-        // through the options in the drawer if there isn't enough vertical
-        // space to fit everything.
         child: ListView(
-          // Important: Remove any padding from the ListView.
           padding: EdgeInsets.zero,
           children: [
             const DrawerHeader(
@@ -90,5 +88,11 @@ class _MainTasksScreenState extends State<MainTasksScreen> {
         ],
       ),
     );
+  }
+
+  screenSize(){
+    MediaQuery.of(context).size.width > 400
+        ? LargeScreen()
+        : SmallScreen();
   }
 }

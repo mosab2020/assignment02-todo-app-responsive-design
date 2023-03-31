@@ -12,19 +12,19 @@ class ResponsiveTest extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
 
-    // return MediaQuery.of(context).size.width > 400
-    //     ? LargeScreen()
-    //     : SmallScreen();
+    return MediaQuery.of(context).size.width > 400
+        ? LargeScreen()
+        : SmallScreen();
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Responsive Design'),
-      ),
-      body: Container(
-        height: MediaQuery.of(context).size.height / 2,
-        width: MediaQuery.of(context).size.width / 2,
-        color: Colors.red,
-      ),
-    );
+    // return Scaffold(
+    //   appBar: AppBar(
+    //     title: Text('Responsive Design'),
+    //   ),
+    //   body: Container(
+    //     height: MediaQuery.of(context).size.height / 2,
+    //     width: MediaQuery.of(context).size.width / 2,
+    //     color: Colors.red,
+    //   ),
+    // );
   }
 }
